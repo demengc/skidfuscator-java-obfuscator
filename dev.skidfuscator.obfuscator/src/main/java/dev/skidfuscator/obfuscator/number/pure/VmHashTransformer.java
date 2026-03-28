@@ -408,6 +408,10 @@ public class VmHashTransformer implements HashTransformer {
             final InstanceClass klass = classes.get(method.getOwnerClass());
             final JavaMethod javaMethod = klass.getMethod(method.getName(), method.getDesc());
 
+            if (javaMethod == null) {
+                return;
+            }
+
             methodMatches.put(javaMethod, matches);
         });
 
